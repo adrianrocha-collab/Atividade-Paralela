@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dpl2wo0oi1vw8"]
+
+[ext_resource type="Texture2D" uid="uid://davgx3wb37f0x" path="res://Sprite Pack 2/1 - Onion Lad/Idle (16 x 16).png" id="1_s304p"]
+[ext_resource type="Script" uid="uid://bvyhuatwi8rh1" path="res://character_body_2d.gd" id="1_vvf27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l186w"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvf27"]
+atlas = ExtResource("1_s304p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0c8s"]
+atlas = ExtResource("1_s304p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aks4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvf27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0c8s")
+}],
+"loop": 1,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1480929333]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1638689922]
+script = ExtResource("1_vvf27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1682354297]
+position = Vector2(153, 136)
+shape = SubResource("CircleShape2D_l186w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=749356096]
+position = Vector2(153, 135)
+sprite_frames = SubResource("SpriteFrames_aks4h")
+animation = &"parado"
